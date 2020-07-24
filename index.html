@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+
+<body>
+
+  <div id="app">
+    {{cor}}
+    {{logado}}
+  </div>
+
+  <script>
+    const vm = new Vue ({
+      el: "#app",
+      data: {
+        cor: "Vermelho",
+        logado: ""
+      }
+    })
+
+    setTimeout(() => {
+      vm.logado = "Sim"
+    }, 1000);
+    // depois de 1s, o "logado" receberá "Sim"
+
+    vm.cor = "Azul"; // muda automaticamente o valor de cor para "Azul"
+    
+    // Proxy -> acesso direto na raiz:
+    // Toda propriedade dentro de data, tb é representada diretamente no objeto Vue (proxy).
+    // Se começar com $ ou _ não é feito o proxy para evitar conflito com as prop de Vue.
+    // sempre definir estados no data, mesmo que não tenha um valor inicial (ex: logado: "")
+    // o data aceita bool, array, obj, num, string...
+
+  </script>
+
+</body>
+
+</html>
